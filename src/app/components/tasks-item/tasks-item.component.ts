@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/Task';
+import { TASKS } from 'src/app/mock-tasks';
 
 @Component({
   selector: 'app-tasks-item',
@@ -7,11 +8,7 @@ import { Task } from 'src/app/Task';
   styleUrls: ['./tasks-item.component.css']
 })
 export class TasksItemComponent implements OnInit {
-  @Input() task: Task = {
-    text: 'Tengo algo que hacer',
-    day: '18 de Junio',
-    reminder: true
-  };
+  @Input() task: Task = TASKS[0];
 
   constructor() { }
 
