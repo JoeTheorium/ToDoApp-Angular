@@ -1,0 +1,9 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: clamp(375px, 100vh, 800px); /* NO se puede achicar menos de 375px, IDEAL es 100vh, NO se puede agrandar mas de 800px */
+    height: 10vh;
+    padding-top: 1rem;
+    background: #f00;
+}
