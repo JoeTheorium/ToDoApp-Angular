@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit { // Ciclo de vida - OnInit: Cuan
   
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  toggleAddTask() {
 
   }
 

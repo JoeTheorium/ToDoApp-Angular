@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-task-button',
@@ -6,13 +6,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./add-task-button.component.css']
 })
 export class AddTaskButtonComponent implements OnInit {
-  @Input() text: string = '';
-  @Input() color: string = '';
+  @Input() text:string = '';
+  @Input() color:string = '';
 
-  constructor() {}
+  @Output() btnClick = new EventEmitter();
+
+  constructor() { }
 
   ngOnInit(): void {}
 
-  onClick(): void {}
+  onClick() {
+    this.btnClick.emit(); // Prop. objeto: Nueva instansación del emit
+
+    console.log('Soy el Boton en el Header');
+  }
 
 }
