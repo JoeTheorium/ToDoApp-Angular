@@ -15,8 +15,11 @@ export class TasksComponent implements OnInit {
     private taskService: TaskService
   ) { }
 
+  // Suscribirse a la promise para hacer fetch al fetch
   ngOnInit(): void {
-    this.tasks = this.taskService.getTask();
+    this.taskService.getTask().subscribe(data => {
+      this.tasks = data;
+    });
   }
 
 }
