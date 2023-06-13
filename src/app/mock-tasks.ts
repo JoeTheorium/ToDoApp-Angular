@@ -17,12 +17,12 @@ export const TASKS:Task[] = [
     "id": 3,
     "text": "Finiquitar HomeDecoration",
     "day": "Junio 25 a las 23:00",
-    "reminder": true
+    "reminder": false
   },
   {
     "id": 4,
     "text": "Iniciar portfolios",
     "day": "Julio 1 a las 19:30",
-    "reminder": false
+    "reminder": true
   }
 ]
