@@ -8,4 +8,8 @@ import { Task } from 'src/app/Task';
 export class TaskService {
 
   constructor() { }
+
+  getTask(): Task[] {
+    return TASKS
+  }
 }
