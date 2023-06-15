@@ -9,7 +9,6 @@ import { Task } from 'src/app/Task';
 })
 
 export class TasksComponent implements OnInit {
-
   tasks: Task[] = []; // Nuestro propio tipo de dato
 
   constructor(
@@ -26,14 +25,20 @@ export class TasksComponent implements OnInit {
   deleteTask(task: Task): void {
     console.log(task.id)
     this.taskService.deleteTask(task).subscribe(() => {
-      this.tasks = this.tasks.filter( t => t.id !== task.id) // Feedback
+      this.tasks = this.tasks.filter(t => t.id !== task.id) // Feedback
     })
   }
 
   toggleReminder(task: Task): void {
     task.reminder = !task.reminder // Editamos el valor de 'reminder'
-    this.taskService.updateTaskReminder(task).subscribe(()=> { // Llamo a la func. "updateTaskReminder" que manda un 'put' para editar el 'json' de la 'API'
-      console.log('El reminder de la Tarea '+task.id + ' cambió al estado: '+task.reminder) // Feedback
+    this.taskService.updateTaskReminder(task).subscribe(() => { // Llamo a la func. "updateTaskReminder" que manda un 'put' para editar el 'json' de la 'API'
+      console.log('El reminder de la Tarea ' + task.id + ' cambió al estado: ' + task.reminder) // Feedback
     })
   }
+
+  addNewTask(newTask: Task): void {
+    this.taskService.createTask(newTask).subscribe((task) => {
+      this.tasks.push(task);
+    });
+  };
 }

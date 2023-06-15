@@ -23,6 +23,18 @@
       "text": "Iniciar portfolios",
       "day": "Julio 1 a las 19:30",
       "reminder": true
+    },
+    {
+      "text": "111",
+      "day": "222",
+      "reminder": true,
+      "id": 5
+    },
+    {
+      "text": "test1",
+      "day": "test2",
+      "reminder": false,
+      "id": 6
     }
   ]
 }

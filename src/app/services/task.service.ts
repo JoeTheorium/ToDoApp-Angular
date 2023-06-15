@@ -35,4 +35,8 @@ export class TaskService {
   updateTaskReminder(task: Task): Observable<Task> {
     return this.http.put<Task>(this.apiUrl+'/tasks/'+task.id, task, httpOptions) // 'put' pide body de mensaje
   }
+
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl+'/tasks', task, httpOptions)
+  }
 }
