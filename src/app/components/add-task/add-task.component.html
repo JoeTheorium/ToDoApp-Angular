@@ -1,4 +1,5 @@
-<form (ngSubmit)="onSubmit()" [ngClass]="{hide: showAddTask}"> <!-- (ngSubmit) -> Directiva (Angular Event) -->
+<!-- [ngClass]="{hide: showAddTask}" -->
+<form (ngSubmit)="onSubmit()" *ngIf="!showAddTask"> <!-- (ngSubmit) -> Directiva (Angular Event) -->
   <fieldset class="form-control">
     <label for="text">Task</label>
     <input

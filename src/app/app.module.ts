@@ -10,6 +10,8 @@ import { AddTaskButtonComponent } from './components/add-task-button/add-task-bu
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TasksItemComponent } from './components/tasks-item/tasks-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     AddTaskButtonComponent,
     TasksComponent,
     TasksItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
