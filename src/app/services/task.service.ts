@@ -16,7 +16,7 @@ const httpOptions = {
 export class TaskService {
   private apiUrl = 'http://localhost:5000';
 
-  constructor(
+  constructor (
     private http: HttpClient
   ) { }
 
@@ -39,4 +39,9 @@ export class TaskService {
   createTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl+'/tasks', task, httpOptions)
   }
+
+  updateTask(task: Task): Observable<any> {
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.post(url, task);
+  }  
 }

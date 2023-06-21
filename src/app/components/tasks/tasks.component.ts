@@ -43,13 +43,14 @@ export class TasksComponent implements OnInit {
     });
   };
 
-  // 
   drop($event: CdkDragDrop<Task[]>) {
     moveItemInArray(
-      $event.container.data,
+      this.tasks,
       $event.previousIndex,
       $event.currentIndex
     );
-    console.log(this.tasks)
+  
+    const movedTask = this.tasks[$event.currentIndex];
+    this.taskService.updateTask(movedTask).subscribe(() => {});
   }
 }
