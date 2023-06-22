@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { TASKS } from 'src/app/mock-tasks';
 import { Task } from 'src/app/Task';
+// import { TASKS } from 'src/app/mock-tasks';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,6 +13,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class TaskService {
   private apiUrl = 'http://localhost:5000';
 
@@ -21,7 +22,7 @@ export class TaskService {
   ) { }
 
   // Devolviendo el endpoint en forma de promise JS (con protocolo get)
-  getTask(): Observable<Task[]> {
+  getTasks(): Observable<Task[]> {
     // return of(TASKS);
     return this.http.get<Task[]>(this.apiUrl+'/tasks')
   }
@@ -39,9 +40,4 @@ export class TaskService {
   createTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl+'/tasks', task, httpOptions)
   }
-
-  updateTask(task: Task): Observable<any> {
-    const url = `${this.apiUrl}/${task.id}`;
-    return this.http.post(url, task);
-  }  
 }
