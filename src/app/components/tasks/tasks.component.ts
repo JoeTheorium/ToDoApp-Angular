@@ -31,29 +31,29 @@ export class TasksComponent implements OnInit {
 
   deleteTask(task: Task): void {
     this.taskService.deleteTask(task).subscribe(() => {
-      this.tasks = this.tasks.filter( t => t.id !== task.id) // Feedback
+      this.tasks = this.tasks.filter(t => t.id !== task.id) // Feedback
     });
   }
 
   toggleReminder(task: Task): void {
     task.reminder = !task.reminder; // Editamos el valor de 'reminder'
-    this.taskService.updateTaskReminder(task).subscribe(()=>{ // Llamo a la func. "updateTaskReminder" que manda un 'put' para editar el 'json' de la 'API'
-      console.log("el reminder de la tarea "+ task.id +" cambió a "+task.reminder); // Feedback
+    this.taskService.updateTaskReminder(task).subscribe(() => { // Llamo a la func. "updateTaskReminder" que manda un 'put' para editar el 'json' de la 'API'
+      console.log("el reminder de la tarea " + task.id + " cambió a " + task.reminder); // Feedback
     });
   }
 
-  addNewTask(newTask:Task): void {
-    this.taskService.createTask(newTask).subscribe((task)=>{
+  addNewTask(newTask: Task): void {
+    this.taskService.createTask(newTask).subscribe((task) => {
       this.tasks.push(task);
     });
   }
 
   drop($event: CdkDragDrop<Task[]>) {
-    if($event.previousContainer === $event.container){
+    if ($event.previousContainer === $event.container) {
       moveItemInArray(
-      $event.container.data,
-      $event.previousIndex,
-      $event.currentIndex
+        $event.container.data,
+        $event.previousIndex,
+        $event.currentIndex
       );
     }
     else {
@@ -64,14 +64,14 @@ export class TasksComponent implements OnInit {
         $event.currentIndex
       );
     }
-    // let newTasks = this.tasks
-    // this.tasks.forEach((task)=>{
-    //   this.taskService.deleteTask(task).subscribe();
-    // })
-    // newTasks.forEach((task)=>{
-    //   this.taskService.createTask(task).subscribe((task)=>{
-    //     this.tasks.push(task);
-    //   });
-    // });
+    let newTasks = this.tasks
+    this.tasks.forEach((task) => {
+      this.taskService.deleteTask(task).subscribe();
+    })
+    newTasks.forEach((task) => {
+      this.taskService.createTask(task).subscribe((task) => {
+        this.tasks.push(task);
+      });
+    });
   }
 }
